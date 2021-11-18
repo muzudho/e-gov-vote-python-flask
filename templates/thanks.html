@@ -4,13 +4,12 @@
     </head>
     <body>
         <img src="static/img/20211102shogi18.png" /><br />
-        {{yourName}} さんの次の一手を入力しろだぜ（＾ｑ＾）<br />
-        <form method="POST" action="/thanks">
+        {{yourName}} さんの {{bestmove}} を受け付けたぜ（＾～＾）<br />
+        <form method="POST" action="/back">
             <input type="hidden" name="yourName" value="{{yourName}}" />
             <!-- 平文（／＿＼） -->
             <input type="hidden" name="secret" value="{{secret}}" />
-            <input type="text" name="bestmove" maxlength="10" />
-            <input type="submit" value="Vote!" />
+            <input type="submit" value="戻る" />
         </form>
     </body>
 </html>
