@@ -5,6 +5,7 @@
     <body>
         <img src="static/img/20211102shogi18.png" /><br />
         {{yourName}} さんの次の一手を入力しろだぜ（＾ｑ＾）<br />
+        <span style="color: red">{{errorMessage}}</span><br />
         <form method="POST" action="/thanks">
             <input type="hidden" name="yourName" value="{{yourName}}" />
             <!-- 平文（／＿＼） -->

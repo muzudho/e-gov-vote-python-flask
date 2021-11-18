@@ -8,7 +8,8 @@ app = Flask(__name__)
 def index():
     return render_template('enter.html',
                            yourName='',
-                           secret='')
+                           secret='',
+                           errorMessage='')
 
 @app.route('/vote', methods=['POST'])
 def vote():
@@ -22,7 +23,8 @@ def vote():
     if len(yourName) < 1 or len(secret) < 1:
         return render_template('enter.html',
                                yourName=yourName,
-                               secret=secret)
+                               secret=secret,
+                               errorMessage='1文字以上入力してください')
     else:
         return render_template('vote.html',
                                yourName=yourName,
@@ -36,18 +38,19 @@ def thanks():
     secret = secret[0:20]
     m = request.form['bestmove']
     m = m[0:10]
-    
+
     if len(m) < 1:
         return render_template('vote.html',
                         yourName=yourName,
                         secret=secret,
-                        bestmove=m)
+                        bestmove=m,
+                        errorMessage='1文字以上入力してください')
     else:
         # 投票します
         response = put_bestmove(yourName, secret, m)
         print("Put bestmove succeeded:")
         pprint(response, sort_dicts=False)
-        
+
         return render_template('thanks.html',
                             yourName=yourName,
                             secret=secret,
