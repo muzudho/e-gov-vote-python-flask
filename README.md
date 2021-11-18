@@ -2,6 +2,9 @@
 
 電子政府きふわらべサーバー部（＾～＾）
 
+![20211118blog38.png](./docs/img/20211118blog38.png)  
+![20211118blog39.png](./docs/img/20211118blog39.png)  
+
 📖 [Flask installation](https://flask.palletsprojects.com/en/2.0.x/installation/)  
 
 Windows:  
