@@ -1,21 +1,11 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        return '''<html>
-<head>
-    <title>電子政府きふわらべ</title>
-</head>
-<body>
-    <img src="static/img/20211102shogi18.png"/><br/>
-    ok
-</body>
-</html>
-'''
-        pass
+        return render_template('voted.html', bestmove=request.form['bestmove'])
     else:
         return '''<html>
 <head>
